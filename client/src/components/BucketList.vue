@@ -15,7 +15,7 @@ export default {
   name: 'bucket-list',
   props: ['bucketList'],
   methods: {
-    updateList(){
+    updateList(country){
       const updatedCountry = {
         name: country.name,
         flag: country.flag,
