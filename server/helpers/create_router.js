@@ -18,21 +18,21 @@ const createRouter = function (collection) {
   });
 
   router.post('/', (req, res) => {
-  const newBucketItem = req.body;
-  collection.insertOne(newBucketItem)
-  .then(result => res.json(result.ops[0]))
-});
+    const newBucketItem = req.body;
+    collection.insertOne(newBucketItem)
+    .then(result => res.json(result.ops[0]))
+  });
 
-router.put('/:id', (req, res) => {
-  const id = req.params.id;
-  const updatedBucketItem = req.body;
-  collection.findOneAndUpdate(
+  router.put('/:id', (req, res) => {
+    const id = req.params.id;
+    const updatedBucketItem = req.body;
+    collection.findOneAndUpdate(
     {_id: ObjectID(id)},
     {$set: updatedBucketItem},
     {returnOriginal: false}
-  )
-  .then(result => res.json(result.value))
-});
+    )
+    .then(result => res.json(result.value))
+  });
 
 
   return router;
